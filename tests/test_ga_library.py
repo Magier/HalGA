@@ -1,8 +1,11 @@
+import copy
+import random
+
 import numpy as np
 import pandas as pd
 import pytest
 
-from ga_library import Individual, mutate_edge_flip, crossover_k_points, ordered_crossover
+from ga_library import Individual, mutate_edge_flip, ordered_crossover
 
 
 @pytest.fixture
@@ -53,23 +56,19 @@ class TestEdgeFlipMutation:
         assert np.array_equal(expected_mat, mutant.mat)
 
 
-class Test1PointCrossover:
-    def test_empty_and_full_crossover(
-        self, fully_connected_individual, disconnected_individual
-    ):
-        child1, child_2 = crossover_k_points(
-            fully_connected_individual, disconnected_individual, k=1
-        )
-
-        assert False
-
-
 class TestOrderedCrossover:
     def test_empty_and_full_crossover(
             self, fully_connected_individual, disconnected_individual
     ):
-        child1, child_2 = ordered_crossover(
-            fully_connected_individual, disconnected_individual, k=1
+        random.seed(123)  # fix seed, so crossover has deteriministic output
+        p1 = fully_connected_individual
+        p1.topology = p1.topology[::-1]
+        p2 = disconnected_individual
+        child1, child2 = ordered_crossover(
+            copy.deepcopy(p1), copy.deepcopy(p2)
         )
 
-        assert False
+        assert child1.topology == ["A", "B", "C", "E", "D"]
+        assert child2.topology == ['E', 'D', 'C', 'A', 'B']
+        assert child1.topology != p1.topology
+        assert child2.topology != p2.topology

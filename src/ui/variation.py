@@ -27,7 +27,7 @@ def show_crossover():
     _Note: DEAP modifies the individuals in place, but clones them before any variation is performed._
     """)
 
-    st.image("../assets/ordered_cx.png")
+    st.image("assets/ordered_cx.png")
 
     st.subheader("The crossover operator in action")
 

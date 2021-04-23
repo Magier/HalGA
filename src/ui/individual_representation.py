@@ -22,7 +22,7 @@ def show_individual_internals(mat: np.array, topology: List):
     st.subheader("Topological order")
     st.markdown(f"Node order: `{topology}`")
     st.subheader("Adjacency Matrix")
-    show_topo_order = st.checkbox("Show in topological order", key=''.join(topology))
+    show_topo_order = st.checkbox("Show in topological order")
     df_dag = pd.DataFrame(mat, index=topology, columns=topology)
     if not show_topo_order:
         sorted_cols = topology if show_topo_order else sorted(topology)

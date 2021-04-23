@@ -2,13 +2,12 @@ import inspect
 
 import deap.tools
 import streamlit as st
-from PIL import Image
 
 
 def show_parent_selection():
     st.header("Parent Selection")
     st.markdown("Parents are selected using a **tournament selection**.")
-    st.image("../assets/tournament_selection.jpg")
+    st.image("assets/tournament_selection.jpg")
 
     st.markdown("The DEAP framework supports this type of Selection out of the box:")
     with st.beta_expander("DEAP's tournament selection code"):

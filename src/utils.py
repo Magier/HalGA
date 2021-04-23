@@ -1,7 +1,6 @@
 import random
 from typing import Dict, List, Optional, Tuple, Union
 
-import ipycytoscape
 import networkx
 import networkx as nx
 import numpy as np
@@ -20,7 +19,7 @@ def show_graph(
 ) -> Union[Tuple[Dict, List], CytoscapeWidget]:
     elements, style, layout = get_cytoscape_params(dependencies, True)
 
-    cytoscapeobj = ipycytoscape.CytoscapeWidget()
+    cytoscapeobj = CytoscapeWidget()
     cytoscapeobj.graph.add_graph_from_json(elements)
 
     cytoscapeobj.set_style(style)
@@ -92,17 +91,6 @@ def dependencies_from_hal_graph(g: hal.Graph) -> List:
             dst_name = get_node_name(dst)
             edges.append((src_name, dst_name))
     return edges
-
-
-# def adjacency_list_to_deps(adj_list: List[int], names: Dict[int, str]) -> List:
-#     # replace indices with names
-#     dep_list = [list(map(names.get, adj_nodes)) for adj_nodes in adj_list]
-#
-#     # convert list of edges to list with the source node and then list of edges
-#     dependencies = [
-#         [names[i], targets] for i, targets in enumerate(dep_list) if len(targets) > 0
-#     ]
-#     return dependencies
 
 
 def dependencies_to_adjacency_matrix(

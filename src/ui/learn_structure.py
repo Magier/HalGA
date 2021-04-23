@@ -6,7 +6,6 @@ import pandas as pd
 import altair as alt
 from ga_library import Individual
 import networkx
-from matplotlib import pyplot as plt
 from ui.individual_representation import visualize_individual
 
 from ui.session_state import get_state
@@ -41,7 +40,6 @@ def show_results():
     logbook = res["logbook"]
 
     df_log = pd.DataFrame(logbook).drop(["gen"], axis=1)
-    # st.dataframe(df_log.transpose())
     chart = create_fitness_evolution_chart(df_log)
     st.altair_chart(chart)
 
@@ -77,7 +75,7 @@ def show():
 
     show_summary()
 
-    # if st.button("Start Search"):
-    #     st.balloons()
-
-    show_results()
+    if st.button("Start Search"):
+        st.balloons()
+        st.experimental_rerun()
+    # show_results()

@@ -44,6 +44,23 @@ California Department of Education https://www.cde.ca.gov.
 ## Used Tools
 - [DEAP](https://github.com/deap/deap) as framework for genetic algorithms
 - [HALerium](https://hal.erium.io/) to evaluate fitness of causal structure
+- [Streamlit](https://streamlit.io/) for the web UI
+
+
+## Usage
+
+### Install
+All dependencies are stored in the `requirements.txt` and can be installed using `pip install -r requirements.txt`.
+
+### Run UI
+
+To run the web UI run `streamlit run src/main.py` from to root folder of this project from to root folder of this project.
+
+### Run Genetic Algorithm 
+
+The execution of the genetic algorithm can be a fairly long-running process. Because of this, the UI does not support interactive updates on the progress of the run.
+Instead, it's recommended to run the optimization process from the terminal by executing `python src_ga_library.py`
+
 
 
 ## Note

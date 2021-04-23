@@ -16,7 +16,6 @@ def show_checklist():
 
 def show():
     # overview flowchart
-    st.image("../assets/EvoluationaryAlgorithm_base.png")
+    st.image("assets/EvoluationaryAlgorithm_base.png")
     
     show_checklist()
-    
