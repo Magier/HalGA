@@ -59,7 +59,7 @@ To run the web UI run `streamlit run src/main.py` from to root folder of this pr
 ### Run Genetic Algorithm 
 
 The execution of the genetic algorithm can be a fairly long-running process. Because of this, the UI does not support interactive updates on the progress of the run.
-Instead, it's recommended to run the optimization process from the terminal by executing `python src_ga_library.py`
+Instead, it's recommended to run the optimization process from the terminal by executing `python src/ga_library.py`
 
 
 
